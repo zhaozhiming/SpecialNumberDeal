@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+compileJava {
+    sourceCompatibility = 1.6
+    targetCompatibility = 1.6
+}
+
+repositories {
+    maven {url "http://maven.oschina.net/content/groups/public/"}
+}
+
+dependencies {
+    compile(
+            "com.google.guava:guava:r09",
+    )
+
+    testCompile(
+            "junit:junit:4.11"
+    )
+}
