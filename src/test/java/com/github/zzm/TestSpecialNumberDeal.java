@@ -34,7 +34,7 @@ public class TestSpecialNumberDeal {
         assertThat(SpecialNumberDeal.deal(new int[]{3, 5}, 13),
                 is(asList("1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "Fizz")));
     }
-    
+
     @Test
     public void should_return_correct_result_when_given_special_numbers_3_5_7_and_loop_14_times() throws Exception {
         assertThat(SpecialNumberDeal.deal(new int[]{3, 5, 7}, 14),
@@ -47,6 +47,14 @@ public class TestSpecialNumberDeal {
         assertThat(SpecialNumberDeal.deal(new int[]{3, 5, 7}, 15),
                 is(asList("1", "2", "Fizz", "4", "Buzz", "Fizz", "Whizz", "8", "Fizz",
                         "Buzz", "11", "Fizz", "Fizz", "Whizz", "FizzBuzz")));
+    }
+
+    @Test
+    public void should_return_correct_result_when_given_special_numbers_3_5_7_and_loop_30_times() throws Exception {
+        assertThat(SpecialNumberDeal.deal(new int[]{3, 5, 7}, 30),
+                is(asList("1", "2", "Fizz", "4", "Buzz", "Fizz", "Whizz", "8", "Fizz",
+                        "Buzz", "11", "Fizz", "Fizz", "Whizz", "FizzBuzz", "16", "17", "Fizz",
+                        "19", "Buzz", "FizzWhizz", "22", "Fizz", "Fizz", "Buzz", "26", "Fizz", "Whizz", "29", "Fizz")));
     }
 
 }
