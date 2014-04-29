@@ -5,6 +5,8 @@ import com.google.common.collect.Lists;
 
 import java.util.List;
 
+import static java.lang.String.valueOf;
+
 public class SpecialNumberDeal {
     private static final ImmutableMap<Integer, String> NUMBER_STRING = ImmutableMap.of(
             3, "Fizz",
@@ -26,17 +28,26 @@ public class SpecialNumberDeal {
 
     private static int whichSpecialNumber(int[] specialNumbers, int index) {
         for (int specialNumber : specialNumbers) {
-            if (index % specialNumber == 0) return specialNumber;
-            if (String.valueOf(index).contains(specialNumbers[0] + "")) return specialNumbers[0];
+            if (isMultiple(specialNumber, index)) return specialNumber;
+            if (isContains(specialNumbers, index)) return specialNumbers[0];
         }
         throw new RuntimeException("can't found special number");
     }
 
     private static boolean isSpecial(int[] specialNumbers, int index) {
         for (int specialNumber : specialNumbers) {
-            if (index % specialNumber == 0) return true;
-            if (String.valueOf(index).contains(specialNumbers[0] + "")) return true;
+            if (isMultiple(specialNumber, index)) return true;
+            if (isContains(specialNumbers, index)) return true;
         }
         return false;
     }
+
+    private static boolean isMultiple(int specialNumber, int index) {
+        return index % specialNumber == 0;
+    }
+
+    private static boolean isContains(int[] specialNumbers, int index) {
+        return valueOf(index).contains(valueOf(specialNumbers[0]));
+    }
+
 }
