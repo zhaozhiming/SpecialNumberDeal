@@ -1,20 +1,20 @@
 package com.github.zzm;
 
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static java.lang.String.valueOf;
 
 public class SpecialNumberDeal {
-    private static final ImmutableMap<Integer, String> NUMBER_STRING = ImmutableMap.of(
-            3, "Fizz",
-            5, "Buzz",
-            7, "Whizz"
-    );
+    public static Map<Integer, String> STRINGS_MAP = Maps.newHashMap();
 
     public static List<String> deal(int[] specialNumbers, int loopTimes) {
+        STRINGS_MAP = createMaps(specialNumbers);
+
         List<String> result = Lists.newArrayList();
         for (int index = 1; index <= loopTimes; index++) {
             if (!isSpecial(specialNumbers, index)) {
@@ -27,13 +27,21 @@ public class SpecialNumberDeal {
         return result;
     }
 
+    private static Map<Integer, String> createMaps(int[] specialNumbers) {
+        HashMap<Integer, String> map = Maps.newHashMap();
+        if (specialNumbers.length > 0) map.put(specialNumbers[0], "Fizz");
+        if (specialNumbers.length > 1) map.put(specialNumbers[1], "Buzz");
+        if (specialNumbers.length > 2) map.put(specialNumbers[2], "Whizz");
+        return map;
+    }
+
     private static String specialString(int[] specialNumbers, int index) {
         StringBuilder result = new StringBuilder();
         for (int specialNumber : specialNumbers) {
-            if (isContains(specialNumbers, index)) return NUMBER_STRING.get(specialNumbers[0]);
+            if (isContains(specialNumbers, index)) return STRINGS_MAP.get(specialNumbers[0]);
 
             if (isMultiple(specialNumber, index)) {
-                result.append(NUMBER_STRING.get(specialNumber));
+                result.append(STRINGS_MAP.get(specialNumber));
             }
         }
         return result.toString();
