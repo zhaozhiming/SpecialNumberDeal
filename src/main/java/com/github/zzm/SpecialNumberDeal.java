@@ -72,11 +72,43 @@ public class SpecialNumberDeal {
         String[] strings = br.readLine().split(" ");
         int[] specialNumbers = convertStringArrayToIntArray(strings);
 
+        checkNumbers(specialNumbers);
         System.out.println("result :\n");
         List<String> result = deal(specialNumbers, 100);
         for (String number : result) {
             System.out.println(number);
         }
+    }
+
+    private static void checkNumbers(int[] specialNumbers) {
+        checkArrayLength(specialNumbers);
+        checkLessThan10(specialNumbers);
+        haveSameNumber(specialNumbers);
+    }
+
+    private static void checkLessThan10(int[] specialNumbers) {
+        for (int specialNumber : specialNumbers) {
+            if (specialNumber >= 10)
+                throw new RuntimeException("number should less than 10");
+        }
+    }
+
+    private static void checkArrayLength(int[] specialNumbers) {
+        if (specialNumbers.length != 3)
+            throw new RuntimeException("number length should be 3");
+    }
+
+    private static void haveSameNumber(int[] specialNumbers) {
+        List<Integer> ints = Lists.newArrayList();
+        for (int specialNumber : specialNumbers) {
+            ints.add(specialNumber);
+        }
+        int count = 0;
+        for (int specialNumber : specialNumbers) {
+            if (ints.contains(specialNumber)) count++;
+        }
+        if (count > 2)
+            throw new RuntimeException("number should not be same");
     }
 
     private static int[] convertStringArrayToIntArray(String[] strings) {
