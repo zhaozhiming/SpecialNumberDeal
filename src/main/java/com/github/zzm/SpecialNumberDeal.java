@@ -10,7 +10,8 @@ import static java.lang.String.valueOf;
 public class SpecialNumberDeal {
     private static final ImmutableMap<Integer, String> NUMBER_STRING = ImmutableMap.of(
             3, "Fizz",
-            5, "Buzz"
+            5, "Buzz",
+            7, "Whizz"
     );
 
     public static List<String> deal(int[] specialNumbers, int loopTimes) {
