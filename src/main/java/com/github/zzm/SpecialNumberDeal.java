@@ -15,27 +15,6 @@ import static java.lang.String.valueOf;
 public class SpecialNumberDeal {
     private static Map<Integer, String> stringMap;
 
-    public static void main(String[] args) throws IOException {
-        System.out.println("please input 3 numbers, every number must <10, and not the same, use blank to split number:");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String[] strings = br.readLine().split(" ");
-        int[] specialNumbers = convertStringArrayToIntArray(strings);
-
-        System.out.println("result :\n");
-        List<String> result = deal(specialNumbers, 100);
-        for (String number : result) {
-            System.out.println(number);
-        }
-    }
-
-    private static int[] convertStringArrayToIntArray(String[] strings) {
-        int[] specialNumbers = new int[strings.length];
-        for (int i = 0; i < strings.length; i++) {
-            specialNumbers[i] = Integer.valueOf(strings[i]);
-        }
-        return specialNumbers;
-    }
-
     public static List<String> deal(int[] specialNumbers, int loopTimes) {
         stringMap = createMaps(specialNumbers);
 
@@ -85,6 +64,27 @@ public class SpecialNumberDeal {
 
     private static boolean isContains(int[] specialNumbers, int index) {
         return valueOf(index).contains(valueOf(specialNumbers[0]));
+    }
+
+    public static void main(String[] args) throws IOException {
+        System.out.println("please input 3 numbers, every number must <10, and not the same, use blank to split number:");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] strings = br.readLine().split(" ");
+        int[] specialNumbers = convertStringArrayToIntArray(strings);
+
+        System.out.println("result :\n");
+        List<String> result = deal(specialNumbers, 100);
+        for (String number : result) {
+            System.out.println(number);
+        }
+    }
+
+    private static int[] convertStringArrayToIntArray(String[] strings) {
+        int[] specialNumbers = new int[strings.length];
+        for (int i = 0; i < strings.length; i++) {
+            specialNumbers[i] = Integer.valueOf(strings[i]);
+        }
+        return specialNumbers;
     }
 
 }
