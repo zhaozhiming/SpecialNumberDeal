@@ -27,6 +27,7 @@ public class SpecialNumberDeal {
     private static int whichSpecialNumber(int[] specialNumbers, int index) {
         for (int specialNumber : specialNumbers) {
             if (index % specialNumber == 0) return specialNumber;
+            if (String.valueOf(index).contains(specialNumbers[0] + "")) return specialNumbers[0];
         }
         throw new RuntimeException("can't found special number");
     }
@@ -34,6 +35,7 @@ public class SpecialNumberDeal {
     private static boolean isSpecial(int[] specialNumbers, int index) {
         for (int specialNumber : specialNumbers) {
             if (index % specialNumber == 0) return true;
+            if (String.valueOf(index).contains(specialNumbers[0] + "")) return true;
         }
         return false;
     }

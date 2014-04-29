@@ -29,5 +29,11 @@ public class TestSpecialNumberDeal {
                 is(asList("1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz")));
     }
 
+    @Test
+    public void should_return_correct_result_when_given_special_number_3_5_and_loop_13_times() throws Exception {
+        assertThat(SpecialNumberDeal.deal(new int[]{3, 5}, 13),
+                is(asList("1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "Fizz")));
+    }
+
 
 }
