@@ -22,17 +22,21 @@ public class SpecialNumberDeal {
                 continue;
             }
 
-            result.add(NUMBER_STRING.get(whichSpecial(specialNumbers, index)));
+            result.add(specialString(specialNumbers, index));
         }
         return result;
     }
 
-    private static int whichSpecial(int[] specialNumbers, int index) {
+    private static String specialString(int[] specialNumbers, int index) {
+        StringBuilder result = new StringBuilder();
         for (int specialNumber : specialNumbers) {
-            if (isMultiple(specialNumber, index)) return specialNumber;
-            if (isContains(specialNumbers, index)) return specialNumbers[0];
+            if (isContains(specialNumbers, index)) return NUMBER_STRING.get(specialNumbers[0]);
+
+            if (isMultiple(specialNumber, index)) {
+                result.append(NUMBER_STRING.get(specialNumber));
+            }
         }
-        throw new RuntimeException("can't found special number");
+        return result.toString();
     }
 
     private static boolean isSpecial(int[] specialNumbers, int index) {
