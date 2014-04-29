@@ -38,7 +38,15 @@ public class TestSpecialNumberDeal {
     @Test
     public void should_return_correct_result_when_given_special_numbers_3_5_7_and_loop_14_times() throws Exception {
         assertThat(SpecialNumberDeal.deal(new int[]{3, 5, 7}, 14),
-                is(asList("1", "2", "Fizz", "4", "Buzz", "Fizz", "Whizz", "8", "Fizz", "Buzz", "11", "Fizz", "Fizz", "Whizz")));
+                is(asList("1", "2", "Fizz", "4", "Buzz", "Fizz", "Whizz", "8", "Fizz",
+                        "Buzz", "11", "Fizz", "Fizz", "Whizz")));
+    }
+
+    @Test
+    public void should_return_correct_result_when_given_special_numbers_3_5_7_and_loop_15_times() throws Exception {
+        assertThat(SpecialNumberDeal.deal(new int[]{3, 5, 7}, 15),
+                is(asList("1", "2", "Fizz", "4", "Buzz", "Fizz", "Whizz", "8", "Fizz",
+                        "Buzz", "11", "Fizz", "Fizz", "Whizz", "FizzBuzz")));
     }
 
 }

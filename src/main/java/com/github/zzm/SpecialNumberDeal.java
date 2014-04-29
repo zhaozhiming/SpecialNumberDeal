@@ -18,16 +18,16 @@ public class SpecialNumberDeal {
         List<String> result = Lists.newArrayList();
         for (int index = 1; index <= loopTimes; index++) {
             if (!isSpecial(specialNumbers, index)) {
-                result.add(index + "");
+                result.add(valueOf(index));
                 continue;
             }
 
-            result.add(NUMBER_STRING.get(whichSpecialNumber(specialNumbers, index)));
+            result.add(NUMBER_STRING.get(whichSpecial(specialNumbers, index)));
         }
         return result;
     }
 
-    private static int whichSpecialNumber(int[] specialNumbers, int index) {
+    private static int whichSpecial(int[] specialNumbers, int index) {
         for (int specialNumber : specialNumbers) {
             if (isMultiple(specialNumber, index)) return specialNumber;
             if (isContains(specialNumbers, index)) return specialNumbers[0];
