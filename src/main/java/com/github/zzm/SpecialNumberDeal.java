@@ -28,7 +28,7 @@ public class SpecialNumberDeal {
         for (int specialNumber : specialNumbers) {
             if (index % specialNumber == 0) return specialNumber;
         }
-        throw new RuntimeException("error");
+        throw new RuntimeException("can't found special number");
     }
 
     private static boolean isSpecial(int[] specialNumbers, int index) {
