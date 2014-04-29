@@ -3,6 +3,10 @@ package com.github.zzm;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
+import java.io.BufferedReader;
+import java.io.Console;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +15,20 @@ import static java.lang.String.valueOf;
 
 public class SpecialNumberDeal {
     private static Map<Integer, String> stringMap;
+
+    public static void main(String[] args) throws IOException {
+        System.out.println("please input 3 numbers, every number must <10, and not the same, use blank to split number:");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] specialNumbersString = br.readLine().split(" ");
+        int[] specialNumbers = new int[specialNumbersString.length];
+        for (int i = 0; i < specialNumbersString.length; i++) {
+            specialNumbers[i] = Integer.valueOf(specialNumbersString[i]);
+        }
+
+        System.out.println("result :\n");
+        System.out.println(deal(specialNumbers, 100));
+    }
+
 
     public static List<String> deal(int[] specialNumbers, int loopTimes) {
         stringMap = createMaps(specialNumbers);
