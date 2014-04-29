@@ -10,10 +10,10 @@ import java.util.Map;
 import static java.lang.String.valueOf;
 
 public class SpecialNumberDeal {
-    public static Map<Integer, String> STRINGS_MAP = Maps.newHashMap();
+    private static Map<Integer, String> stringMap;
 
     public static List<String> deal(int[] specialNumbers, int loopTimes) {
-        STRINGS_MAP = createMaps(specialNumbers);
+        stringMap = createMaps(specialNumbers);
 
         List<String> result = Lists.newArrayList();
         for (int index = 1; index <= loopTimes; index++) {
@@ -35,24 +35,24 @@ public class SpecialNumberDeal {
         return map;
     }
 
-    private static String specialString(int[] specialNumbers, int index) {
-        StringBuilder result = new StringBuilder();
-        for (int specialNumber : specialNumbers) {
-            if (isContains(specialNumbers, index)) return STRINGS_MAP.get(specialNumbers[0]);
-
-            if (isMultiple(specialNumber, index)) {
-                result.append(STRINGS_MAP.get(specialNumber));
-            }
-        }
-        return result.toString();
-    }
-
     private static boolean isSpecial(int[] specialNumbers, int index) {
         for (int specialNumber : specialNumbers) {
             if (isMultiple(specialNumber, index)) return true;
             if (isContains(specialNumbers, index)) return true;
         }
         return false;
+    }
+
+    private static String specialString(int[] specialNumbers, int index) {
+        StringBuilder result = new StringBuilder();
+        for (int specialNumber : specialNumbers) {
+            if (isContains(specialNumbers, index)) return stringMap.get(specialNumbers[0]);
+
+            if (isMultiple(specialNumber, index)) {
+                result.append(stringMap.get(specialNumber));
+            }
+        }
+        return result.toString();
     }
 
     private static boolean isMultiple(int specialNumber, int index) {
