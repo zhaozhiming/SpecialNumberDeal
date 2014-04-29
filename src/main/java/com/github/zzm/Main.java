@@ -1,11 +1,12 @@
 package com.github.zzm;
 
-import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
 
@@ -44,15 +45,12 @@ public class Main {
     }
 
     private static void haveSameNumber(int[] specialNumbers) {
-        List<Integer> ints = Lists.newArrayList();
+        Set<Integer> ints = Sets.newHashSet();
         for (int specialNumber : specialNumbers) {
             ints.add(specialNumber);
         }
-        int count = 0;
-        for (int specialNumber : specialNumbers) {
-            if (ints.contains(specialNumber)) count++;
-        }
-        if (count > 2)
+
+        if (ints.size() < 3)
             throw new RuntimeException("number should not be same");
     }
 
