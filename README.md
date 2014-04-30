@@ -9,3 +9,5 @@
 6. given special numbers `3,5,7` and loop 14 times, then return `1,2,Fizz,4,Buzz,Fizz,Whizz,8,Fizz,Buzz,11,Fizz,Fizz,Whizz`.
 7. given special numbers `3,5,7` and loop 15 times, then return `1,2,Fizz,4,Buzz,Fizz,Whizz,8,Fizz,Buzz,11,Fizz,Fizz,Whizz,FizzBuzz`.
 8. given special numbers `3,5,7` and loop 30 times, then return `1,2,Fizz,4,Buzz,Fizz,Whizz,8,Fizz,Buzz,11,Fizz,Fizz,Whizz,FizzBuzz,16,17,Fizz,19,Buzz,FizzWhizz,22,Fizz,Fizz,Buzz,26,Fizz,Whizz,29,Fizz`.
+
+[![Build Status](https://buildhive.cloudbees.com/job/zhaozhiming/job/SpecialNumberDeal/badge/icon)](https://buildhive.cloudbees.com/job/zhaozhiming/job/SpecialNumberDeal/)
