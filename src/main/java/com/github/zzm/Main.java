@@ -45,7 +45,7 @@ public class Main {
 
     private static void checkArrayLength(int[] specialNumbers) {
         if (specialNumbers.length != DEFAULT_SPECIAL_NUMBER_SIZE)
-            throw new RuntimeException("number length should be 3");
+            throw new RuntimeException("number length should be " + DEFAULT_SPECIAL_NUMBER_SIZE);
     }
 
     private static void haveSameNumber(int[] specialNumbers) {
