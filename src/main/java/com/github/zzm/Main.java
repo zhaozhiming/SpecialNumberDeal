@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Set;
 
 public class Main {
-
     private static final int DEFAULT_TIMES = 100;
     private static final int DEFAULT_SPECIAL_NUMBER_SIZE = 3;
 
@@ -49,12 +48,12 @@ public class Main {
     }
 
     private static void haveSameNumber(int[] specialNumbers) {
-        Set<Integer> ints = Sets.newHashSet();
+        Set<Integer> set = Sets.newHashSet();
         for (int specialNumber : specialNumbers) {
-            ints.add(specialNumber);
+            set.add(specialNumber);
         }
 
-        if (ints.size() < DEFAULT_SPECIAL_NUMBER_SIZE)
+        if (set.size() < DEFAULT_SPECIAL_NUMBER_SIZE)
             throw new RuntimeException("number should not be same");
     }
 
