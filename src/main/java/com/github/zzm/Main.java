@@ -11,9 +11,13 @@ import java.util.Set;
 public class Main {
 
     private static final int DEFAULT_TIMES = 100;
+    private static final int DEFAULT_SPECIAL_NUMBER_SIZE = 3;
 
     public static void main(String[] args) throws IOException {
-        System.out.println("please input 3 numbers, every number must <10, and not the same, use blank to split number:");
+        System.out.println("Please input 3 numbers: \n" +
+                "PS: 1.Every number must <10 \n" +
+                "    2.Numbers should not be same \n" +
+                "    3.Use blank to split number");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] strings = br.readLine().split(" ");
         int[] specialNumbers = convertStringArrayToIntArray(strings);
@@ -40,7 +44,7 @@ public class Main {
     }
 
     private static void checkArrayLength(int[] specialNumbers) {
-        if (specialNumbers.length != 3)
+        if (specialNumbers.length != DEFAULT_SPECIAL_NUMBER_SIZE)
             throw new RuntimeException("number length should be 3");
     }
 
@@ -50,7 +54,7 @@ public class Main {
             ints.add(specialNumber);
         }
 
-        if (ints.size() < 3)
+        if (ints.size() < DEFAULT_SPECIAL_NUMBER_SIZE)
             throw new RuntimeException("number should not be same");
     }
 

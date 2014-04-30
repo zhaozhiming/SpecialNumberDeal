@@ -37,8 +37,8 @@ public class SpecialNumberDeal {
 
     private static boolean isSpecial(int[] specialNumbers, int index) {
         for (int specialNumber : specialNumbers) {
-            if (isMultiple(specialNumber, index)) return true;
             if (isContains(specialNumbers, index)) return true;
+            if (isMultiple(specialNumber, index)) return true;
         }
         return false;
     }
