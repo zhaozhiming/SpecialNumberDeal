@@ -8,15 +8,18 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Set;
 
+import static java.lang.String.format;
+
 public class Main {
     private static final int DEFAULT_TIMES = 100;
     private static final int DEFAULT_SPECIAL_NUMBER_SIZE = 3;
 
     public static void main(String[] args) throws IOException {
         System.out.println("Please input 3 numbers: \n" +
-                "PS: 1.Every number must <10 \n" +
-                "    2.Numbers should not be same \n" +
-                "    3.Use blank to split number");
+                "PS: 1.Every number must <10; \n" +
+                "    2.Numbers should not be same; \n" +
+                "    3.Use blank to split number; \n" +
+                "input string such as '3 5 7'");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] strings = br.readLine().split(" ");
         int[] specialNumbers = convertStringArrayToIntArray(strings);
@@ -43,8 +46,9 @@ public class Main {
     }
 
     private static void checkArrayLength(int[] specialNumbers) {
-        if (specialNumbers.length != DEFAULT_SPECIAL_NUMBER_SIZE)
-            throw new RuntimeException("number length should be " + DEFAULT_SPECIAL_NUMBER_SIZE);
+        if (specialNumbers.length != DEFAULT_SPECIAL_NUMBER_SIZE) {
+            throw new RuntimeException(format("number length should be %d", DEFAULT_SPECIAL_NUMBER_SIZE));
+        }
     }
 
     private static void haveSameNumber(int[] specialNumbers) {
